@@ -43,10 +43,17 @@ describe('Calc', function () {
   describe('.mean', function() {
     it('should find the mean of the numbers in an array', function () {
       var avg = Calc.mean([1, 3, 5, 7, 9]);
-      expect(avg).to.equal(5);
+      expect(avg).to.be.closeTo(5, 0.001);
     });
   });
 
+
+  describe('.stdev', function() {
+    it('should calculate the standard deviation for the numbers in a array', function () {
+      var dev = Calc.stdev([3, 7, 2, 4, 6, 8]);
+      expect(dev).to.be.closeTo(2.366, 0.001);
+    });
+  });
   
   
 });

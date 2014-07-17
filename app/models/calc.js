@@ -51,8 +51,33 @@ Calc.mean = function (nums) {
   for (var i = 0; i < nums.length; i++) {
     total += nums[i];
   }
-  return total/nums.length;
+  var avg = total/nums.length;
+  return avg.toFixed(3);
 };
+
+Calc.stdev = function (numbers) {
+
+  var average = Calc.mean(numbers);
+  var secondNumbers = [];
+  var secondAverage = 0;
+  
+  for(var i = 0; i< numbers.length; i++) {
+    var square = Math.pow((numbers[i] - average), 2);
+  
+   secondNumbers.push(square);
+  }
+  var secondTotal = 0; 
+  for (var j = 0; j < secondNumbers.length; j++){
+    secondTotal += secondNumbers[j];
+  }
+   secondAverage = secondTotal/(secondNumbers.length - 1);
+  return  Math.sqrt(secondAverage);
+  
+};  
+
+  
+   
+  
 
 module.exports = Calc;
 
